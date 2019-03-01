@@ -15,3 +15,5 @@ class TestBabysitter(unittest.TestCase):
     def test_only_babysits_for_1_family__per_night(self):
         self.assertEqual(False, self.b.has_not_babysat_tonight())
         
+    def test_no_fractional_hours(self):
+        self.assertEqual(True, self.b.hours_are_not_fractional())

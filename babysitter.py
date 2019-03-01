@@ -18,3 +18,6 @@ class Babysitter():
 
     def has_not_babysat_tonight(self):
         return self.has_babysat_tonight
+
+    def hours_are_not_fractional(self):
+        return self.start_time[-4:-2] == "00" and self.end_time[-4:-2] == "00"
