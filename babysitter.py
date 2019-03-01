@@ -3,7 +3,7 @@ class Babysitter():
         self.start_time = start_time
         self.end_time = end_time
         self.family = family
-        self.times = [5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4]
+        self.times = ["5p", "6p", "7p", "8p", "9p", "10p", "11p", "12a", "1a", "2a", "3a", "4a"]
 
     def is_valid_start_time(self):
         if self.start_time in self.times:
