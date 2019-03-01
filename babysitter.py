@@ -10,3 +10,7 @@ class Babysitter():
             return True
         return False
 
+    def is_valid_end_time(self):
+        if self.end_time in self.times:
+            return True
+        return False
