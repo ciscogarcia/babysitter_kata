@@ -17,3 +17,6 @@ class TestBabysitter(unittest.TestCase):
         
     def test_no_fractional_hours(self):
         self.assertEqual(True, self.b.hours_are_not_fractional())
+
+if __name__ == '__main__':
+    unittest.main()
