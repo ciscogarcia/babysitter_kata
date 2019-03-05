@@ -24,6 +24,9 @@ class TestBabysitter(unittest.TestCase):
     def test_family_is_valid(self):
         self.assertTrue(self.b.family_is_valid())
 
+    def test_can_calculate_nightly_charge(self):
+        self.assertTrue(self.b.can_calculate_nightly_charge())
+
 
 if __name__ == '__main__':
     unittest.main()

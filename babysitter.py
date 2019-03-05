@@ -23,3 +23,10 @@ class Babysitter():
 
     def family_is_valid(self):
         return self.family in ["a", "b", "c"]
+
+    def can_calculate_nightly_charge(self):
+        return (self.is_valid_start_time() and self.is_valid_end_time() and
+                not self.has_babysat_tonight() and
+                self.hours_are_not_fractional() and
+                self.begin_time_is_before_end_time() and
+                self.family_is_valid)
