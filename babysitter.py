@@ -29,4 +29,4 @@ class Babysitter():
                 not self.has_babysat_tonight() and
                 self.hours_are_not_fractional() and
                 self.begin_time_is_before_end_time() and
-                self.family_is_valid)
+                self.family_is_valid())
