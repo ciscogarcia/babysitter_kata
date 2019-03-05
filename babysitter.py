@@ -21,3 +21,6 @@ class Babysitter():
 
     def hours_are_not_fractional(self):
         return self.start_time[-4:-2] == "00" and self.end_time[-4:-2] == "00"
+
+    def begin_time_is_before_end_time(self):
+        return self.times.index(self.start_time) < self.times.index(self.end_time)
