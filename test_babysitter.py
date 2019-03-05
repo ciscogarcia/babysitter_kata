@@ -21,6 +21,9 @@ class TestBabysitter(unittest.TestCase):
     def test_begin_time_is_before_end_time(self):
         self.assertTrue(self.b.begin_time_is_before_end_time())
 
+    def test_family_is_valid(self):
+        self.assertTrue(self.b.family_is_valid())
+
 
 if __name__ == '__main__':
     unittest.main()

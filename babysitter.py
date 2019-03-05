@@ -24,3 +24,6 @@ class Babysitter():
 
     def begin_time_is_before_end_time(self):
         return self.times.index(self.start_time) < self.times.index(self.end_time)
+
+    def family_is_valid(self):
+        return self.family in ["a", "b", "c"]
