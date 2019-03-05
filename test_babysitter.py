@@ -13,7 +13,7 @@ class TestBabysitter(unittest.TestCase):
         self.assertTrue(self.b.is_valid_end_time())
 
     def test_only_babysits_for_1_family__per_night(self):
-        self.assertFalse(self.b.has_not_babysat_tonight())
+        self.assertFalse(self.b.has_babysat_tonight())
 
     def test_no_fractional_hours(self):
         self.assertTrue(self.b.hours_are_not_fractional())
