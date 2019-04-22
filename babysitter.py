@@ -34,6 +34,10 @@ class Babysitter():
     def nightly_charge(self):
         if self.family == "a":
             return self.calculate_family_a()
+        elif self.family == "b":
+            return self.calculate_family_b()
+        else:
+            return self.calculate_family_c()
 
     def calculate_family_a(self):
         hours_before_eleven = None
@@ -52,3 +56,22 @@ class Babysitter():
             hours_after_eleven = self.times.index(self.end_time) - self.times.index("11:00pm")
 
         return hours_before_eleven * 15 + hours_after_eleven * 20
+
+    def calculate_family_c(self):
+        hours_before_nine = None
+        hours_after_nine = None
+
+        if self.times.index(self.end_time) < self.times.index("9:00pm"):
+            hours_before_nine = self.times.index(self.end_time) - self.times.index(self.start_time)
+            return hours_before_nine * 21
+        else:
+            hours_before_nine = self.times.index("9:00pm") - self.times.index(self.start_time)
+
+        if self.times.index(self.start_time) > self.times.index("9:00pm"):
+            hours_after_nine = self.times.index(self.end_time) - self.times.index(self.start_time)
+            return hours_after_nine * 15
+        else:
+            hours_after_nine = self.times.index(self.end_time) - self.times.index("9:00pm")
+
+        return hours_before_nine * 21 + hours_after_nine * 15
+
