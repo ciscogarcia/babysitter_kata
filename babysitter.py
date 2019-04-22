@@ -30,3 +30,18 @@ class Babysitter():
                 self.hours_are_not_fractional() and
                 self.begin_time_is_before_end_time() and
                 self.family_is_valid())
+
+    def nightly_charge(self):
+        if self.family == "a":
+            return self.calculate_family_a()
+
+    def calculate_family_a(self):
+        hours_before_eleven = 0
+        hours_after_eleven = 0
+
+        if self.times.index(self.end_time) < self.times.index("11:00pm"):
+            hours_before_eleven = self.times.index(self.end_time) - self.times.index(self.start_time)
+        else:
+            hours_before_eleven = self.times.index("11:00pm") - self.times.index(self.start_time)
+
+        return hours_before_eleven * 15 + hours_after_eleven * 20
