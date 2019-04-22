@@ -43,13 +43,13 @@ class Babysitter():
         hours_before_eleven = None
         hours_after_eleven = None
 
-        if self.times.index(self.end_time) < self.times.index("11:00pm"):
+        if self.times.index(self.end_time) <= self.times.index("11:00pm"):
             hours_before_eleven = self.times.index(self.end_time) - self.times.index(self.start_time)
             return hours_before_eleven * 15
         else:
             hours_before_eleven = self.times.index("11:00pm") - self.times.index(self.start_time)
 
-        if self.times.index(self.start_time) > self.times.index("11:00pm"):
+        if self.times.index(self.start_time) >= self.times.index("11:00pm"):
             hours_after_eleven = self.times.index(self.end_time) - self.times.index(self.start_time)
             return hours_after_eleven * 20
         else:
@@ -61,13 +61,13 @@ class Babysitter():
         hours_before_nine = None
         hours_after_nine = None
 
-        if self.times.index(self.end_time) < self.times.index("9:00pm"):
+        if self.times.index(self.end_time) <= self.times.index("9:00pm"):
             hours_before_nine = self.times.index(self.end_time) - self.times.index(self.start_time)
             return hours_before_nine * 21
         else:
             hours_before_nine = self.times.index("9:00pm") - self.times.index(self.start_time)
 
-        if self.times.index(self.start_time) > self.times.index("9:00pm"):
+        if self.times.index(self.start_time) >= self.times.index("9:00pm"):
             hours_after_nine = self.times.index(self.end_time) - self.times.index(self.start_time)
             return hours_after_nine * 15
         else:
@@ -75,3 +75,9 @@ class Babysitter():
 
         return hours_before_nine * 21 + hours_after_nine * 15
 
+    def calculate_family_b(self):
+        hours_before_10 = None
+
+        if self.times.index(self.end_time) <= self.times.index("10:00pm"):
+            hours_before_10 = self.times.index(self.end_time) - self.times.index(self.start_time)
+            return hours_before_10 * 12
