@@ -44,10 +44,32 @@ class TestBabysitter(unittest.TestCase):
         self.assertEqual(b.nightly_charge(), 40)
         c = Babysitter("11:00pm", "3:00am", "a")
         self.assertEqual(c.nightly_charge(), 80)
+        c = Babysitter("11:00pm", "4:00am", "a")
+        self.assertEqual(c.nightly_charge(), 100)
 
-    def test_family_a_charges_170_for_a_full_night(self):
-        a = Babysitter("5:00pm", "3:00am", "a")
-        self.assertEqual(a.nightly_charge(), 170)
+    def test_family_a_charges_190_for_a_full_night(self):
+        a = Babysitter("5:00pm", "4:00am", "a")
+        self.assertEqual(a.nightly_charge(), 190)
+
+    def test_family_c_charges_21_before_nine(self):
+        a = Babysitter("5:00pm", "6:00pm", "c")
+        self.assertEqual(a.nightly_charge(), 21)
+        a = Babysitter("5:00pm", "7:00pm", "c")
+        self.assertEqual(a.nightly_charge(), 42)
+        a = Babysitter("5:00pm", "9:00pm", "c")
+        self.assertEqual(a.nightly_charge(), 84)
+
+    def test_family_c_charges_15_after_nine(self):
+        a = Babysitter("9:00pm", "10:00pm", "c")
+        self.assertEqual(a.nightly_charge(), 15)
+        b = Babysitter("9:00pm", "11:00pm", "c")
+        self.assertEqual(b.nightly_charge(), 30)
+        c = Babysitter("9:00pm", "4:00am", "c")
+        self.assertEqual(c.nightly_charge(), 105)
+
+    def test_family_c_charges_189_for_a_full_night(self):
+        a = Babysitter("5:00pm", "4:00am", "c")
+        self.assertEqual(a.nightly_charge(), 189)
 
 if __name__ == '__main__':
     unittest.main()
