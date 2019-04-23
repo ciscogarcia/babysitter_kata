@@ -1,4 +1,5 @@
 class Babysitter():
+    """Class to determine if we can charge for a night, and calculate how much we should be paid"""
     def __init__(self, start_time, end_time, family):
         self.start_time = start_time
         self.end_time = end_time
@@ -7,24 +8,31 @@ class Babysitter():
         self.times = ["5:00pm", "6:00pm", "7:00pm", "8:00pm", "9:00pm", "10:00pm", "11:00pm", "12:00am", "1:00am", "2:00am", "3:00am", "4:00am"]
 
     def is_valid_start_time(self):
+        """Checks to see if the start time is valid"""
         return self.start_time in self.times
 
     def is_valid_end_time(self):
+        """Checks to see if the end time is valid"""
         return self.end_time in self.times
 
     def has_babysat_tonight(self):
+        """Checks to see if we have already babysat for a family tonight"""
         return self.babysat_tonight
 
     def hours_are_not_fractional(self):
+        """Checke to see that we are not charging for partial hours"""
         return self.start_time[-4:-2] == "00" and self.end_time[-4:-2] == "00"
 
     def begin_time_is_before_end_time(self):
+        """Checks to make sure that our start time is chronologically before our end time"""
         return self.times.index(self.start_time) < self.times.index(self.end_time)
 
     def family_is_valid(self):
+        """Make sure the family is on valid"""
         return self.family in ["a", "b", "c"]
 
     def can_calculate_nightly_charge(self):
+        """Run through all of our validity checks"""
         return (self.is_valid_start_time() and self.is_valid_end_time() and
                 not self.has_babysat_tonight() and
                 self.hours_are_not_fractional() and
@@ -32,6 +40,7 @@ class Babysitter():
                 self.family_is_valid())
 
     def nightly_charge(self):
+        """Calculate the what we should be paid for an evening"""
         if self.family == "a":
             return self.calculate_family_a()
         elif self.family == "b":
@@ -40,6 +49,7 @@ class Babysitter():
             return self.calculate_family_c()
 
     def calculate_family_a(self):
+        """Calculations specific to family a"""
         hours_before_eleven = None
         hours_after_eleven = None
 
@@ -58,6 +68,7 @@ class Babysitter():
         return hours_before_eleven * 15 + hours_after_eleven * 20
 
     def calculate_family_c(self):
+        """Calculations specific to family c"""
         hours_before_nine = None
         hours_after_nine = None
 
@@ -76,6 +87,7 @@ class Babysitter():
         return hours_before_nine * 21 + hours_after_nine * 15
 
     def calculate_family_b(self):
+        """Calculations specific to family b"""
         hours_before_10 = 0
         hours_after_12 = 0
         hours_between_10_and_12 = 0
