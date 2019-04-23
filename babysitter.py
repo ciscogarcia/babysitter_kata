@@ -78,6 +78,7 @@ class Babysitter():
     def calculate_family_b(self):
         hours_before_10 = None
         hours_after_12 = None
+        hours_between_10_and_12 = None
 
         if self.times.index(self.end_time) <= self.times.index("10:00pm"):
             hours_before_10 = self.times.index(self.end_time) - self.times.index(self.start_time)
@@ -90,3 +91,7 @@ class Babysitter():
             return hours_after_12 * 16
         else:
             hours_after_12 = self.times.index(self.end_time) - self.times.index("12:00am")
+
+        if self.times.index(self.start_time) >= self.times.index("10:00pm") and self.times.index(self.end_time) <= self.times.index("12:00am"):
+            hours_between_10_and_12 = self.times.index(self.end_time) - self.times.index(self.start_time)
+            return hours_between_10_and_12 * 8
