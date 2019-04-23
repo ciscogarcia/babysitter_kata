@@ -27,4 +27,4 @@ You should charge $75 for family a if you started at 5:00pm and ended at 10:00pm
 ```
 
 
-## There are no external dependancies. This was built using python 3.7.3, but should work with any 3.x version of python
+There are no external dependancies. This was built using python 3.7.3, but should work with any 3.x version of python
