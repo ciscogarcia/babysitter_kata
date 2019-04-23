@@ -139,7 +139,6 @@ def usage():
 if __name__ == '__main__':
     import argparse
 
-
     parser = argparse.ArgumentParser(description="Get start time, end time, and family")
     parser.add_argument("start_time", type=str)
     parser.add_argument("end_time", type=str)
