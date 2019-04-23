@@ -124,3 +124,30 @@ class Babysitter():
             hours_between_10_and_12 = 1
 
         return hours_before_10 * 12 + hours_after_12 * 16 + hours_between_10_and_12 * 8
+
+
+def usage():
+    print("""
+    python babysitter.py start end family
+
+    start\tstart time between 5:00pm and 4:00am.\t ex. 7:00pm
+    end\t\tendtime between 5:00pm and 4:00am.\t ex. 1:00am
+    family\tfamily a, b, or c.\t\t\t ex. c
+""")
+
+
+if __name__ == '__main__':
+    import argparse
+
+
+    parser = argparse.ArgumentParser(description="Get start time, end time, and family")
+    parser.add_argument("start_time", type=str)
+    parser.add_argument("end_time", type=str)
+    parser.add_argument("family", type=str)
+    args = parser.parse_args()
+
+    babysitter = Babysitter(args.start_time, args.end_time, args.family)
+    if babysitter.can_calculate_nightly_charge():
+        print("You should charge ${} for family {} if you started at {} and ended at {}".format(babysitter.nightly_charge(), babysitter.family, babysitter.start_time, babysitter.end_time))
+    else:
+        usage()
