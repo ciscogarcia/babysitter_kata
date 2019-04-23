@@ -92,14 +92,23 @@ class Babysitter():
         elif self.times.index(self.end_time) >= self.times.index("12:00am"):
             hours_after_12 = self.times.index(self.end_time) - self.times.index("12:00am")
 
-        if self.times.index(self.start_time) >= self.times.index("10:00pm") and self.times.index(self.end_time) <= self.times.index("12:00am"):
+        if (self.times.index(self.start_time) >= self.times.index("10:00pm") and
+            self.times.index(self.end_time) <= self.times.index("12:00am")):
             hours_between_10_and_12 = self.times.index(self.end_time) - self.times.index(self.start_time)
             return hours_between_10_and_12 * 8
 
-        if self.times.index(self.start_time) <= self.times.index("10:00pm") and self.times.index(self.end_time) >= self.times.index("12:00am"):
+        if (self.times.index(self.start_time) <= self.times.index("10:00pm") and
+            self.times.index(self.end_time) >= self.times.index("12:00am")):
             hours_between_10_and_12 = 2
 
-        if self.times.index(self.start_time) <= self.times.index("10:00pm") and self.times.index(self.end_time) > self.times.index("10:00pm") and self.times.index(self.end_time) < self.times.index("12:00am"):
+        if (self.times.index(self.start_time) <= self.times.index("10:00pm") and
+            self.times.index(self.end_time) > self.times.index("10:00pm") and
+            self.times.index(self.end_time) < self.times.index("12:00am")):
+            hours_between_10_and_12 = 1
+
+        if (self.times.index(self.start_time) > self.times.index("10:00pm") and
+            self.times.index(self.start_time) <= self.times.index("12:00am") and
+            self.times.index(self.end_time) >= self.times.index("12:00am")):
             hours_between_10_and_12 = 1
 
         return hours_before_10 * 12 + hours_after_12 * 16 + hours_between_10_and_12 * 8
