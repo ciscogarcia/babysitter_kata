@@ -87,5 +87,12 @@ class TestBabysitter(unittest.TestCase):
         c = Babysitter("12:00am", "4:00am", "b")
         self.assertEqual(c.nightly_charge(), 64)
 
+    def test_family_b_charges_8_between_10_and_12(self):
+        a = Babysitter("10:00pm", "11:00pm", "b")
+        self.assertEqual(a.nightly_charge(), 8)
+        b = Babysitter("10:00pm", "12:00am", "b")
+        self.assertEqual(b.nightly_charge(), 16)
+
+
 if __name__ == '__main__':
     unittest.main()
