@@ -51,7 +51,7 @@ class TestBabysitter(unittest.TestCase):
         a = Babysitter("5:00pm", "4:00am", "a")
         self.assertEqual(a.nightly_charge(), 190)
 
-    def test_family_c_charges_21_before_nine(self):
+    def test_family_c_charges_21_before_9(self):
         a = Babysitter("5:00pm", "6:00pm", "c")
         self.assertEqual(a.nightly_charge(), 21)
         a = Babysitter("5:00pm", "7:00pm", "c")
@@ -59,7 +59,7 @@ class TestBabysitter(unittest.TestCase):
         a = Babysitter("5:00pm", "9:00pm", "c")
         self.assertEqual(a.nightly_charge(), 84)
 
-    def test_family_c_charges_15_after_nine(self):
+    def test_family_c_charges_15_after_9(self):
         a = Babysitter("9:00pm", "10:00pm", "c")
         self.assertEqual(a.nightly_charge(), 15)
         b = Babysitter("9:00pm", "11:00pm", "c")
